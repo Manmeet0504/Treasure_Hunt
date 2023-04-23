@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+    url("../../images/clue4.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  background-position: center center;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#myInput4 {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+  background-color: rgb(84, 147, 39);
+  box-shadow: 0px 0px 10px #000;
+  text-align: center;
+  margin-top: 150%;
+  position: relative;
+}
+
+#myInput4::placeholder {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+#myInput4:focus {
+  outline: none;
+}
+
+.title_para {
+  text-align: center;
+  font-family: "IM Fell English", serif;
+  /* text-transform: uppercase; */
+  color: #000;
+  text-shadow: 1px 1px #6a9b22;
+  font-size: 25px;
+  position: absolute;
+  bottom: 75%;
+  padding: 2rem;
+  margin-top: 13rem;
+  margin-right: 6rem;
+  margin-left: 6rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 10px;
+  position: absolute;
+  height: 5px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.help {
+  color: #83a630; /* sets the link color to blue */
+  text-decoration: none; /* removes the underline from the link */
+  font-weight: bold; /* makes the link text bold */
+  transition: all 0.3s ease-in-out; /* adds a smooth transition effect */
+  margin-top: 37%;
+  margin-right: 4%;
+  position: absolute;
+}
+
+.help:hover {
+  color: #27ba24; /* changes the link color on hover */
+  text-decoration: underline; /* underlines the link on hover */
+}
+.show-modal {
+  /* font-size: 2rem; */
+  font-weight: 600;
+  padding: 7px;
+  margin-left: 90%;
+  margin-top: 4%;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  border-radius: 5rem;
+  cursor: pointer;
+  position: absolute;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.para {
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+#timer {
+  font-size: 24px;
+  color: #333;
+  margin-left: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #ccc;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  font-size: 25px;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#counter-btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#counter-btn:hover {
+  background-color: #3e8e41;
+}
+
+#counter-btn:active {
+  background-color: #3e8e41;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+#counter-btn.wrong-answer {
+  background-color: #ff0000;
+}

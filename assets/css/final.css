@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("../../images/final.png");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  background-position: center center;
+}
+
+.intro_para {
+  font-family: "IM Fell English", serif;
+  text-transform: uppercase;
+  color: black;
+  text-shadow: 1px 1px #000;
+  padding: 2rem;
+  margin-top: 8rem;
+  margin-right: 6rem;
+  margin-left: 6rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  font-size: large;
+}
+
+.title_para {
+  text-align: center;
+  font-family: "IM Fell English", serif;
+  text-transform: uppercase;
+  color: #b8b8ba;
+  text-shadow: 2px 2px #000;
+  font-size: 70px;
+  position: absolute;
+  bottom: 78%;
+}
+.icon-left {
+  margin: 30px auto;
+  text-align: center;
+}
+.icon-left img {
+  width: 100px;
+  margin-left: 140px;
+  margin-top: 30px;
+  cursor: pointer;
+  opacity: 0.85;
+  position: absolute;
+}
+
+.icon-right {
+  margin: 30px auto;
+  text-align: center;
+}
+.icon-right img {
+  width: 100px;
+  margin-left: 1050px;
+  margin-top: 30px;
+  cursor: pointer;
+  opacity: 0.85;
+  position: absolute;
+}

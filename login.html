@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/loginStyle.css" />
+  </head>
+  <body>
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button
+          type="button"
+          class="toggle-btn"
+          id="log"
+          onclick="login()"
+          style="color: #fff"
+        >
+          Log In
+        </button>
+        <button type="button" class="toggle-btn" id="reg" onclick="register()">
+          Register
+        </button>
+      </div>
+
+      <!-- Login -->
+      <!-- <form id="login" class="input-group" action="clue1.html"> -->
+      <form id="login" class="input-group" action="">
+        <div class="inp">
+          <input
+            type="text"
+            id="email"
+            class="input-field"
+            placeholder="Username or Phone Number"
+            style="width: 88%; border: none"
+            required="required"
+            name="email"
+          />
+        </div>
+        <div class="inp">
+          <input
+            type="password"
+            id="password"
+            class="input-field"
+            placeholder="Password"
+            style="width: 88%; border: none"
+            required="required"
+            name="password"
+          />
+        </div>
+        <input type="checkbox" class="check-box" />Remember Password
+        <!-- <button type="submit" class="submit-btn">
+          <a class="logIN" href="clue1.html">Log In</a>
+        </button> -->
+        <button type="submit" class="submit-btn logIN">
+          Log In
+        </button>
+      </form>
+
+      <!-- Registration -->
+      <form id="register" class="input-group" action="">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Full Name"
+          required="required"
+          name="fullname"
+          id="fullname"
+        />
+        <input
+          type="email"
+          class="input-field"
+          placeholder="Email Address"
+          required="required"
+          name="email"
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Create Password"
+          name="psame"
+          required="required"
+        />
+        <input
+          type="password"
+          class="input-field"
+          placeholder="Confirm Password"
+          name="psame"
+          required="required"
+        />
+        <input
+          type="checkbox"
+          class="check-box"
+          id="chkAgree"
+          onclick="goFurther()"
+        />I agree to the Terms & Conditions
+        <!-- <button type="button" class="submit-btn reg-btn" id="btnSubmit" onclick="registerUserClick()">
+          Register
+        </button> -->
+        <button type="submit" id="btnSubmit" class="submit-btn reg-btn">
+          Register
+        </button>
+      </form>
+    </div>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+  </body>
+</html>

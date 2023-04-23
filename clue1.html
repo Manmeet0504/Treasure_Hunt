@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clue-1</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/css/clue1_styles.css"
+    />
+  </head>
+  <body>
+    <h1 class="title_para">
+      Mark-1 -> Arrr matey, ye've reached the first mark on our grand adventure!
+      But the real journey begins now, as we search for the elusive treasure map
+      that'll lead us to riches beyond our wildest dreams. Hoist the sails and
+      keep yer eyes peeled, for danger lurks around every corner and only the
+      bravest among us shall prevail.You may ask
+      <a
+        href="https://www.devglan.com/online-tools/text-encryption-decryption"
+        target="_blank"
+        id="captainKidd"
+        >Captain kidd</a
+      >
+      for "The Map" but remember to add "your sword" as you find the map.
+    </h1>
+    <button class="show-modal">Progress</button>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>PROGRESS 🏴‍☠️</h1>
+      <table>
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>Time</td>
+            <td id="timer"></td>
+          </tr>
+          <tr>
+            <td>Number of tries</td>
+            <td id="class-display">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="my-class"></div>
+    <div class="overlay hidden"></div>
+    <div>
+      <input type="text" id="myInput" />
+      <button id="counter-btn" onclick="checkInput()">Submit</button>
+    </div>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="./assets/js/modal.js"></script>
+  </body>
+</html>

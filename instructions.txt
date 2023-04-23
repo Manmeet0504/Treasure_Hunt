@@ -1,0 +1,9 @@
+1.) npm run start : will start node server which will listen on port http://localhost:3000
+2.) node api is storing user's data on server as json object, mongodb or any other database could have been used to store data.
+3.) node api is used to fetch user's data on login if user is valid user and redirects user to play game, else user is kept at login page.
+4.) On Register user's details are stored in json object with uniqueId.
+5.) chrome localStorage is used to store the user's object post login.
+
+6.) we could have encrypted password on login using cryptojs / aes etc. and even during storage.
+7.) user's progress object is readily available on front end to be integrated.
+8.) browser's refresh event needs to be captured so that it's not reset.
