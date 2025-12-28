@@ -1,8 +1,8 @@
-﻿node_modules/
-dist/
-.env
-.env.local
+﻿dist
+node_modules
+.firebase
 *.log
+.env
 .DS_Store
-.vscode/
-.idea/
+dataconnect
+src/dataconnect-generated
