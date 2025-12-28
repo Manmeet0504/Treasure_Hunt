@@ -1,19 +1,16 @@
 {
-  "name": "elitmus",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "name": "pirates-treasure-hunt",
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "nodemon": "^2.0.22"
+    "firebase": "^10.7.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
   }
 }

@@ -1,32 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pirate's Adventure</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
-  </head>
-  <body>
-    <h1 class="title_para">Pirate's Adventure</h1>
-    <div class="icon-left">
-      <img src="./images/download.png" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Pearl Quest - Pirates of Caribbean Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #fbbf24;
+            --ocean: #0f172a
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+
+        .ocean {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 1
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.1));
+            animation: wave 10s linear infinite
+        }
+
+        .wave1 {
+            animation-duration: 8s
+        }
+
+        .wave2 {
+            animation-duration: 12s;
+            opacity: 0.5
+        }
+
+        .wave3 {
+            animation-duration: 15s;
+            opacity: 0.3
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0
+        }
+
+        .main-title {
+            font-family: 'Pirata One', cursive;
+            font-size: 6rem;
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(251, 191, 36, 0.6)
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(251, 191, 36, 1)
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic
+        }
+
+        .compass {
+            font-size: 6rem;
+            margin: 2rem 0;
+            animation: spin 20s linear infinite
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .story {
+            background: rgba(15, 23, 42, 0.9);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.3)
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            text-align: center
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.4rem
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #0f172a;
+            padding: 1.5rem 4rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Pirata One', cursive;
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+            transition: all 0.3s;
+            margin: 2rem 0
+        }
+
+        .btn-main:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.8)
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 3rem 0
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0
+        }
+
+        .feature-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.4)
+        }
+
+        .feature-card h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin: 1rem 0
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem
+        }
+
+        .difficulty-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 1rem 0
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(251, 191, 36, 0.2);
+            margin-top: 3rem
+        }
+    @media(max-width:768px){.container{padding:1rem}.main-title{font-size:3.5rem}.subtitle{font-size:1.2rem}.compass{font-size:4rem}.story{padding:1.5rem}.intro-text{font-size:1.1rem}.btn-main{padding:1rem 2rem;font-size:1.2rem}.features{grid-template-columns:1fr;gap:1rem}.feature-card{padding:1.5rem}}@media(max-width:480px){.main-title{font-size:2.5rem}.subtitle{font-size:1rem}.compass{font-size:3rem}.story{padding:1rem;margin:1.5rem 0}.intro-text{font-size:1rem}.btn-main{padding:0.75rem 1.5rem;font-size:1rem}.feature-card h3{font-size:1.2rem}.feature-card p{font-size:0.95rem}}</style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="ocean">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
     </div>
-    <div class="icon-right">
-      <img src="./images/download.png" />
+    <div class="container">
+        <header>
+            <h1 class="main-title"> Black Pearl Quest </h1>
+            <p class="subtitle">"Not all treasure is silver and gold, mate"</p>
+            <div class="compass"></div>
+        </header>
+        <div class="story">
+            <p class="intro-text"><em>Ahoy, brave soul!</em> The legendary Captain Jack Sparrow has hidden clues across
+                the seven seas from his adventures aboard the Black Pearl.</p>
+            <p class="intro-text">From his magical compass to the depths of Davy Jones locker, from the Krakens lair to
+                the Fountain of Youth - each clue reveals secrets from the Pirates of the Caribbean!</p>
+            <p class="intro-text highlight">Do ye have what it takes to solve all 5 clues and claim the <strong>ultimate
+                    pirate treasure</strong>?</p>
+        </div>
+        <div class="button-container"><a href="login.html" class="btn-main"> Begin Your Quest </a></div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Progressive Difficulty</h3>
+                <p>EASY MEDIUM HARD challenges</p><span class="difficulty-tag">5 Epic Clues</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Combo Streak Bonuses</h3>
+                <p>Perfect answers without hints = +150-300 pts!</p><span class="difficulty-tag">Score: 1000 pts</span>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Multiple Endings</h3>
+                <p>Your score determines your treasure tier</p><span class="difficulty-tag">Legendary Common</span>
+            </div>
+        </div>
+        <footer>
+            <p> Created for Pirates of the Caribbean fans </p>
+            <p style="margin-top:0.5rem;font-size:0.9rem"> Interactive clues | Point system | Hint system</p>
+        </footer>
     </div>
-    <div class="intro_para">
-      "Ahoy, captain! Ye have stumbled upon the greatest adventure to ever grace
-      the high seas! Be ye brave enough to join our band of marauding pirates on
-      a perilous quest for treasure? The journey ahead will be fraught with
-      danger, but with grit and determination, we shall navigate these
-      treacherous waters and emerge victorious. With our cutlasses at the ready
-      and our sails unfurled, we shall scour every corner of the earth in search
-      of riches beyond your wildest dreams. So hoist the colors, me hearties,
-      and let us set sail on the greatest adventure ever told!"
-    </div>
-    <a class="get-started" href="login.html">Get Started</a>
-    <script type="text/javascript" src="./assets/js/script.js"></script>
-    <script type="text/javascript" src="./assets/js/modal.js"></script>
-  </body>
+    <script>function createStars() { const c = document.getElementById('stars'); for (let i = 0; i < 150; i++) { const s = document.createElement('div'); s.className = 'star'; s.style.left = Math.random() * 100 + '%'; s.style.top = Math.random() * 100 + '%'; s.style.width = s.style.height = Math.random() * 3 + 'px'; s.style.animationDelay = Math.random() * 3 + 's'; c.appendChild(s) } } createStars();</script>
+</body>
+
 </html>

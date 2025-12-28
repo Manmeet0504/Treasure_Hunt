@@ -1,27 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Treasure</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/final.css" />
-  </head>
-  <body>
-    <h1 class="title_para">Weldone Captain!!</h1>
-    <div class="icon-left">
-      <img src="./images/download.png" />
-    </div>
-    <div class="icon-right">
-      <img src="./images/download.png" />
-    </div>
-    <div class="intro_para">
-      "Well shiver me timbers, me hearty! Ye be quite the skilled navigator to
-      have discovered the hidden treasure! Ye have earned the respect and
-      admiration of all true buccaneers of the high seas. With your cunning wit
-      and fearless spirit, ye have proven yourself to be a savvy sailor worthy
-      of great renown. May the winds of fortune continue to blow in yer favor as
-      ye embark on even greater adventures! ARRR!"
-    </div>
-  </body>
-</html>
+<html><head><meta charset='UTF-8'><title>Treasure Revealed!</title><link href='https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap' rel='stylesheet'><style>:root{--gold:#fbbf24;--legendary:#a855f7;--epic:#ec4899;--rare:#3b82f6;--common:#6b7280}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cinzel',serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh;overflow-x:hidden}.stars{position:fixed;width:100%;height:100%;z-index:0}.star{position:absolute;background:white;border-radius:50%;animation:twinkle 3s infinite}@keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:1}}header{background:rgba(15,23,42,0.95);padding:1rem 2rem;position:relative;z-index:10;border-bottom:3px solid var(--gold)}h1{font-family:'Pirata One',cursive;color:var(--gold);font-size:2.5rem;text-align:center}.main{max-width:1000px;margin:3rem auto;padding:2rem;position:relative;z-index:1}.treasure-reveal{background:rgba(15,23,42,0.95);border:4px solid var(--gold);border-radius:30px;padding:4rem;text-align:center;position:relative;overflow:hidden}.treasure-glow{position:absolute;top:50%;left:50%;width:300px;height:300px;background:radial-gradient(circle,rgba(251,191,36,0.3),transparent);transform:translate(-50%,-50%);animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.2)}}.treasure-icon{font-size:12rem;margin:2rem 0;animation:float 3s ease-in-out infinite;position:relative;z-index:2}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}.treasure-chest{width:300px;height:250px;margin:2rem auto;position:relative;animation:float 3s ease-in-out infinite}.chest-body{width:100%;height:150px;background:linear-gradient(135deg,#8b4513,#654321);border:5px solid #3e2723;border-radius:20px 20px 5px 5px;position:relative;box-shadow:0 20px 40px rgba(0,0,0,0.5)}.chest-lid{width:110%;height:80px;background:linear-gradient(135deg,#a0522d,#654321);border:5px solid #3e2723;border-radius:40px 40px 0 0;position:absolute;top:-70px;left:-5%;box-shadow:0 10px 30px rgba(0,0,0,0.3);transform-origin:bottom;animation:chestOpen 2s ease-in-out 1s forwards}.chest-lock{width:40px;height:50px;background:linear-gradient(135deg,#ffd700,#ffed4e);border:3px solid #b8860b;border-radius:10px;position:absolute;bottom:50px;left:50%;transform:translateX(-50%);box-shadow:0 5px 15px rgba(255,215,0,0.5)}.chest-lock::before{content:'';width:20px;height:20px;background:#b8860b;border-radius:50%;position:absolute;top:15px;left:50%;transform:translateX(-50%)}.treasure-glow-inner{position:absolute;width:100%;height:100%;background:radial-gradient(circle,var(--glow-color),transparent);opacity:0;animation:glowPulse 2s ease-in-out 3s infinite}@keyframes chestOpen{0%{transform:rotateX(0deg)}100%{transform:rotateX(-45deg)}}@keyframes glowPulse{0%,100%{opacity:0.3}50%{opacity:0.8}}.legendary-chest{--glow-color:rgba(168,85,247,0.6)}.legendary-chest .chest-body{background:linear-gradient(135deg,#7c3aed,#a855f7);border-color:#5b21b6;box-shadow:0 20px 60px rgba(168,85,247,0.7)}.legendary-chest .chest-lid{background:linear-gradient(135deg,#8b5cf6,#a855f7);border-color:#5b21b6}.legendary-chest .chest-lock{background:linear-gradient(135deg,#fbbf24,#fcd34d);animation:spin 3s linear infinite}@keyframes spin{0%{transform:translateX(-50%) rotate(0deg)}100%{transform:translateX(-50%) rotate(360deg)}}.epic-chest{--glow-color:rgba(236,72,153,0.6)}.epic-chest .chest-body{background:linear-gradient(135deg,#db2777,#ec4899);border-color:#9f1239;box-shadow:0 20px 60px rgba(236,72,153,0.7)}.epic-chest .chest-lid{background:linear-gradient(135deg,#e11d48,#ec4899);border-color:#9f1239}.epic-chest .chest-lock{background:linear-gradient(135deg,#fbbf24,#f59e0b)}.rare-chest{--glow-color:rgba(59,130,246,0.6)}.rare-chest .chest-body{background:linear-gradient(135deg,#2563eb,#3b82f6);border-color:#1e3a8a;box-shadow:0 20px 60px rgba(59,130,246,0.7)}.rare-chest .chest-lid{background:linear-gradient(135deg,#1d4ed8,#3b82f6);border-color:#1e3a8a}.rare-chest .chest-lock{background:linear-gradient(135deg,#94a3b8,#cbd5e1)}.common-chest{--glow-color:rgba(107,114,128,0.4)}.common-chest .chest-body{background:linear-gradient(135deg,#4b5563,#6b7280);border-color:#374151}.common-chest .chest-lid{background:linear-gradient(135deg,#374151,#4b5563);border-color:#1f2937}.common-chest .chest-lock{background:linear-gradient(135deg,#9ca3af,#d1d5db)}.coins{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);width:200px;height:100px;opacity:0;animation:coinsAppear 1s ease-out 3.5s forwards}.coin{position:absolute;width:30px;height:30px;background:linear-gradient(135deg,#fbbf24,#f59e0b);border-radius:50%;animation:coinFloat 2s ease-in-out infinite}.coin:nth-child(1){left:20%;animation-delay:0s}.coin:nth-child(2){left:40%;animation-delay:0.2s}.coin:nth-child(3){left:60%;animation-delay:0.4s}.coin:nth-child(4){left:80%;animation-delay:0.6s}@keyframes coinsAppear{0%{opacity:0;transform:translateX(-50%) translateY(20px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}@keyframes coinFloat{0%,100%{transform:translateY(0) rotateY(0deg)}50%{transform:translateY(-15px) rotateY(180deg)}}.treasure-name{font-family:'Pirata One',cursive;font-size:4rem;margin:1rem 0;position:relative;z-index:2}.legendary{color:var(--legendary);text-shadow:0 0 30px var(--legendary)}.epic{color:var(--epic);text-shadow:0 0 30px var(--epic)}.rare{color:var(--rare);text-shadow:0 0 30px var(--rare)}.common{color:var(--common)}.score-final{font-size:3rem;color:var(--gold);margin:2rem 0;position:relative;z-index:2}.message{font-size:1.5rem;line-height:2;margin:2rem 0;padding:2rem;background:rgba(251,191,36,0.1);border-radius:15px;position:relative;z-index:2}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:2rem 0;position:relative;z-index:2}.stat-box{background:rgba(30,41,59,0.8);border:2px solid rgba(251,191,36,0.3);border-radius:15px;padding:1.5rem}.stat-label{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:0.5rem}.stat-value{color:var(--gold);font-size:2rem;font-weight:700}.buttons{display:flex;gap:1rem;justify-content:center;margin-top:3rem;position:relative;z-index:2}.btn{padding:1rem 3rem;border:none;border-radius:15px;font-size:1.2rem;font-weight:700;cursor:pointer;font-family:'Cinzel',serif}.btn-replay{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f172a}.btn-logout{background:transparent;border:2px solid #ef4444;color:#ef4444}.fireworks{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100}.firework{position:absolute;width:4px;height:4px;border-radius:50%;animation:explode 1s ease-out forwards}@keyframes explode{0%{transform:translate(0,0);opacity:1}100%{transform:translate(var(--x),var(--y));opacity:0}}@media(max-width:768px){header h1{font-size:1.8rem}.treasure-reveal{padding:2rem}.treasure-icon{font-size:8rem}.treasure-name{font-size:2.5rem}.score-final{font-size:2rem}.message{font-size:1.2rem;padding:1.5rem}.stats{grid-template-columns:repeat(2,1fr);gap:1rem}.stat-box{padding:1rem}.stat-value{font-size:1.5rem}.buttons{flex-direction:column;gap:0.75rem}.btn{padding:0.75rem 2rem;font-size:1rem}}@media(max-width:480px){header h1{font-size:1.5rem}.treasure-reveal{padding:1.5rem}.treasure-icon{font-size:6rem}.treasure-name{font-size:2rem}.score-final{font-size:1.5rem}.message{font-size:1rem;padding:1rem}.stats{grid-template-columns:1fr}.stat-box{padding:0.75rem}.stat-label{font-size:0.8rem}.stat-value{font-size:1.2rem}.btn{font-size:0.95rem;padding:0.75rem 1.5rem}}.leaderboard{background:rgba(15,23,42,0.95);border:3px solid var(--gold);border-radius:20px;padding:2rem;margin:3rem auto;max-width:800px;position:relative;z-index:2}.leaderboard-title{font-family:"Pirata One",cursive;font-size:2.5rem;color:var(--gold);text-align:center;margin-bottom:2rem;text-shadow:0 0 20px rgba(251,191,36,0.5)}.leaderboard-table{width:100%;border-collapse:collapse}.leaderboard-table thead{background:rgba(251,191,36,0.2);border-bottom:2px solid var(--gold)}.leaderboard-table th{padding:1rem;text-align:left;color:var(--gold);font-size:1.1rem;font-weight:700}.leaderboard-table td{padding:1rem;border-bottom:1px solid rgba(251,191,36,0.1);font-size:1.1rem}.leaderboard-row{transition:all 0.3s}.leaderboard-row:hover{background:rgba(251,191,36,0.1)}.current-user{background:linear-gradient(135deg,rgba(251,191,36,0.3),rgba(251,191,36,0.1))!important;border-left:5px solid var(--gold);animation:highlightPulse 2s ease-in-out infinite}@keyframes highlightPulse{0%,100%{box-shadow:0 0 10px rgba(251,191,36,0.3)}50%{box-shadow:0 0 25px rgba(251,191,36,0.6)}}.rank{font-weight:700;font-size:1.3rem;width:60px}.rank-1{color:#ffd700;text-shadow:0 0 10px #ffd700}.rank-2{color:#c0c0c0;text-shadow:0 0 10px #c0c0c0}.rank-3{color:#cd7f32;text-shadow:0 0 10px #cd7f32}.player-name{color:rgba(255,255,255,0.9)}.current-user .player-name{color:var(--gold);font-weight:700}.score-cell{color:var(--gold);font-weight:700;font-size:1.2rem}.medal{font-size:1.5rem;margin-right:0.5rem}.loading-text{text-align:center;color:rgba(255,255,255,0.7);font-style:italic;padding:2rem}
+</style></head><body><div class='stars' id='stars'></div><div class='fireworks' id='fireworks'></div><header><h1> TREASURE DISCOVERED! </h1></header><div class='main'><div class='treasure-reveal'><div class='treasure-glow'></div><div id='treasureContent'><div class='treasure-icon' id='icon'></div><div class='treasure-name legendary' id='name'>Loading...</div><div class='score-final' id='finalScore'> 0</div><div class='message' id='message'>Calculating...</div><div class='stats'><div class='stat-box'><div class='stat-label'>Starting Gold</div><div class='stat-value'>1000</div></div><div class='stat-box'><div class='stat-label'>Final Score</div><div class='stat-value' id='scoreValue'>0</div></div><div class='stat-box'><div class='stat-label'>Best Streak</div><div class='stat-value' id='streakValue'>0</div></div><div class='stat-box'><div class='stat-label'>Rank</div><div class='stat-value' id='rankValue'>---</div></div></div></div></div></div>
+
+<!-- LEADERBOARD -->
+<div class="leaderboard">
+  <div class="leaderboard-title">🏴‍☠️ Pirate Leaderboard</div>
+  <div id="leaderboardContent" class="loading-text">Loading rankings...</div>
+</div>
+
+<div class='buttons'><button class='btn btn-replay' onclick='replay()'> New Adventure</button><button class='btn btn-logout' onclick='logout()'> Logout</button></div></div></div><script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g",authDomain:"treasure-hunt0504.firebaseapp.com",projectId:"treasure-hunt0504"});
+const auth=firebase.auth();
+const db=firebase.firestore();
+
+function createStars(){const c=document.getElementById('stars');for(let i=0;i<100;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=s.style.height=Math.random()*3+'px';s.style.animationDelay=Math.random()*3+'s';c.appendChild(s)}}createStars();function launchFireworks(){const c=document.getElementById('fireworks');for(let i=0;i<30;i++){setTimeout(()=>{const x=Math.random()*window.innerWidth,y=Math.random()*window.innerHeight/2;for(let j=0;j<20;j++){const f=document.createElement('div');f.className='firework';f.style.left=x+'px';f.style.top=y+'px';f.style.background=['#fbbf24','#ec4899','#a855f7','#3b82f6','#22c55e'][Math.floor(Math.random()*5)];f.style.setProperty('--x',(Math.random()-0.5)*200+'px');f.style.setProperty('--y',(Math.random()-0.5)*200+'px');c.appendChild(f);setTimeout(()=>f.remove(),1000)}},i*200)}}setTimeout(()=>{localStorage.setItem('currentPage','final.html');const storedScore=localStorage.getItem('gameScore')||'0';const storedStreak=localStorage.getItem('gameStreak')||'0';const score=parseInt(storedScore);const streak=parseInt(storedStreak);let treasure,msg,rank,icon;if(score>=800){treasure=' LEGENDARY TREASURE';msg=' MAGNIFICENT! Ye be a true Pirate Lord! Jack Sparrow himself would tip his hat to ye! The legendary treasure of Captain Henry Morgan is yours - untold riches beyond imagination!';rank='Pirate Lord';icon='';document.getElementById('name').className='treasure-name legendary';launchFireworks()}else if(score>=500){treasure=' EPIC TREASURE';msg=' EXCELLENT! A worthy pirate indeed! Ye found the treasure of the Spanish Galleon - chests overflowing with doubloons and jewels!';rank='Captain';icon='';document.getElementById('name').className='treasure-name epic'}else if(score>=200){treasure=' RARE TREASURE';msg=' WELL DONE! Not bad, matey! Ye discovered a buried cache of silver pieces - enough to live comfortably for years!';rank='First Mate';icon='';document.getElementById('name').className='treasure-name rare'}else{treasure=' COMMON TREASURE';msg=' Ahoy! Ye found some treasure, but many hints were needed. A small chest of coins - better than nothing, savvy?';rank='Sailor';icon='';document.getElementById('name').className='treasure-name common'}const chestHTML = '<div class="treasure-chest ' + (score>=800?'legendary-chest':score>=500?'epic-chest':score>=200?'rare-chest':'common-chest') + '"><div class="chest-lid"><div class="treasure-glow-inner"></div></div><div class="chest-body"><div class="chest-lock"></div></div><div class="coins"><div class="coin"></div><div class="coin"></div><div class="coin"></div><div class="coin"></div></div></div>';
+document.getElementById('icon').innerHTML=chestHTML;
+document.getElementById('icon').style.fontSize='initial';document.getElementById('name').textContent=treasure;document.getElementById('finalScore').textContent=' '+score;document.getElementById('message').textContent=msg;document.getElementById('scoreValue').textContent=score;document.getElementById('streakValue').textContent=streak;document.getElementById('rankValue').textContent=rank},500);async function loadLeaderboard() {
+  try {
+    const currentUser = auth.currentUser;
+    if (!currentUser) return;
+    
+    const usersSnapshot = await db.collection('users').orderBy('score', 'desc').limit(10).get();
+    
+    if (usersSnapshot.empty) {
+      document.getElementById('leaderboardContent').innerHTML = '<p class="loading-text">No players yet!</p>';
+      return;
+    }
+    
+    let tableHTML = '<table class="leaderboard-table"><thead><tr><th>Rank</th><th>Player</th><th>Score</th></tr></thead><tbody>';
+    
+    let rank = 1;
+    usersSnapshot.forEach(doc => {
+      const userData = doc.data();
+      const isCurrentUser = doc.id === currentUser.uid;
+      const playerEmail = userData.email || 'Anonymous';
+      const playerName = playerEmail.split('@')[0]; // Show username part only
+      
+      const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
+      const rankClass = 'rank-' + rank;
+      const rowClass = isCurrentUser ? 'leaderboard-row current-user' : 'leaderboard-row';
+      
+      tableHTML += `<tr class="${rowClass}">
+        <td class="rank ${rankClass}">${medal}#${rank}</td>
+        <td class="player-name">${playerName}${isCurrentUser ? ' (You)' : ''}</td>
+        <td class="score-cell"> ${userData.score || 0}</td>
+      </tr>`;
+      
+      rank++;
+    });
+    
+    tableHTML += '</tbody></table>';
+    document.getElementById('leaderboardContent').innerHTML = tableHTML;
+  } catch (error) {
+    console.error('Leaderboard error:', error);
+    document.getElementById('leaderboardContent').innerHTML = '<p class="loading-text">Failed to load leaderboard</p>';
+  }
+}
+
+setTimeout(() => {
+  loadLeaderboard();
+}, 1000);
+
+window.replay=async()=>{
+  try {
+    const user = auth.currentUser;
+    if(user) {
+      await db.collection('users').doc(user.uid).update({
+        score: 1000,
+        streak: 0,
+        lastPage: 'clue1.html'
+      });
+    }
+  } catch(e) {
+    console.log('Reset error:', e);
+  }
+  localStorage.setItem('gameScore','1000');
+  localStorage.setItem('gameStreak','0');
+  localStorage.setItem('currentPage','clue1.html');
+  location.href='clue1.html'
+};window.logout=()=>{localStorage.clear();location.href='login.html'};</script></body></html>

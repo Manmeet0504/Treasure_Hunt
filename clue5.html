@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head><meta charset='UTF-8'><title>Clue 5 - Final Challenge</title><link href='https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap' rel='stylesheet'><style>:root{--gold:#fbbf24;--danger:#ef4444}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cinzel',serif;background:linear-gradient(135deg,#0f172a,#450a0a);color:#fff;min-height:100vh}header{background:rgba(15,23,42,0.9);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold)}h1{font-family:'Pirata One',cursive;color:var(--gold);font-size:2rem}nav{display:flex;gap:1rem;align-items:center}.score,.streak{background:rgba(251,191,36,0.2);padding:0.5rem 1rem;border-radius:8px;color:var(--gold);font-weight:700}.btn-logout{background:transparent;border:2px solid #ef4444;color:#ef4444;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-family:'Cinzel',serif}.main{max-width:1200px;margin:2rem auto;padding:2rem}.difficulty-badge{display:inline-block;background:linear-gradient(135deg,#7c2d12,#991b1b);color:white;padding:0.5rem 1.5rem;border-radius:20px;font-weight:700;margin-bottom:1rem;font-size:1.1rem;animation:pulse-glow 2s infinite}@keyframes pulse-glow{0%,100%{box-shadow:0 0 10px rgba(239,68,68,0.5)}50%{box-shadow:0 0 25px rgba(239,68,68,0.8)}}.clue-card{background:rgba(15,23,42,0.95);border:3px solid var(--danger);border-radius:20px;padding:3rem;box-shadow:0 0 40px rgba(239,68,68,0.4)}.clue-title{font-family:'Pirata One',cursive;font-size:3.5rem;color:var(--danger);text-align:center;margin-bottom:1rem;text-shadow:0 0 20px rgba(239,68,68,0.5)}.subtitle{text-align:center;font-style:italic;color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1.3rem}.visual-clue{background:linear-gradient(135deg,#450a0a,#0f172a);border:3px solid rgba(239,68,68,0.5);border-radius:15px;padding:2rem;margin:2rem 0;text-align:center}.skull{font-size:10rem;animation:shake 3s infinite}@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}.riddle{background:rgba(239,68,68,0.1);border-left:4px solid var(--danger);padding:2rem;margin:2rem 0;font-size:1.4rem;line-height:2}.highlight{color:var(--danger);font-weight:700;font-size:1.5rem}.code-puzzle{background:rgba(30,41,59,0.9);border:3px solid var(--danger);border-radius:15px;padding:2rem;margin:2rem 0}.code-title{color:var(--gold);font-size:1.5rem;font-weight:700;margin-bottom:1rem;text-align:center}.code-lines{background:rgba(15,23,42,0.95);padding:1.5rem;border-radius:10px;font-family:monospace;font-size:1.2rem;line-height:2;color:#22c55e}.input-section{background:rgba(30,41,59,0.8);border:2px solid rgba(239,68,68,0.3);border-radius:15px;padding:2rem;margin:2rem 0}input[type="text"]{width:100%;padding:1.5rem;background:rgba(15,23,42,0.9);border:3px solid rgba(239,68,68,0.5);border-radius:10px;color:#fff;font-size:1.5rem;font-family:'Cinzel',serif;text-align:center;font-weight:700;text-transform:uppercase}input[type="text"]:focus{outline:none;border-color:var(--danger);box-shadow:0 0 30px rgba(239,68,68,0.5)}input[type="text"]::placeholder{color:rgba(255,255,255,0.3);font-style:italic;text-transform:none}.hint-section{margin:2rem 0}.hint-btn{background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;padding:0.75rem 1.5rem;border-radius:8px;color:white;cursor:pointer;margin:0.5rem;font-family:'Cinzel',serif;font-size:1rem}.hint-btn:disabled{opacity:0.5;cursor:not-allowed}.hint-btn.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}.hint-box,.answer-box{padding:1rem;border-radius:8px;margin:0.5rem 0;display:none}.hint-box{background:rgba(59,130,246,0.2);border:2px solid #3b82f6}.answer-box{background:rgba(239,68,68,0.2);border:2px solid #ef4444}.hint-box.show,.answer-box.show{display:block}.btn-submit{background:linear-gradient(135deg,#ef4444,#dc2626);border:none;padding:1.5rem 3rem;border-radius:10px;color:#fff;font-size:1.3rem;font-weight:700;cursor:pointer;font-family:'Cinzel',serif;width:100%;margin-top:1rem;text-transform:uppercase;box-shadow:0 0 20px rgba(239,68,68,0.5)}.btn-submit:hover{box-shadow:0 0 40px rgba(239,68,68,0.8)}.btn-submit:disabled{opacity:0.5;cursor:not-allowed}.feedback{margin-top:1rem;padding:1rem;border-radius:10px;text-align:center;display:none}.feedback.show{display:block}.feedback.success{background:rgba(34,197,94,0.3);color:#4ade80;font-size:1.3rem;font-weight:700}.feedback.error{background:rgba(239,68,68,0.3);color:#f87171;font-size:1.1rem}.bonus-popup{position:fixed;top:50%;left:50%;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f172a;padding:2rem 3rem;border-radius:20px;font-size:2rem;font-weight:700;z-index:2000;display:none;transform:translate(-50%,-50%)}.bonus-popup.show{display:block;animation:popup 0.5s}@keyframes popup{0%{transform:translate(-50%,-50%) scale(0)}100%{transform:translate(-50%,-50%) scale(1)}}@media(max-width:768px){header{padding:0.75rem 1rem}h1{font-size:1.5rem}.score,.streak,.btn-logout{padding:0.4rem 0.8rem;font-size:0.9rem}.main{padding:1rem}.clue-card,.treasure-reveal{padding:2rem}.clue-title,.treasure-name{font-size:2rem}.riddle,.message{font-size:1.1rem;padding:1rem}input,select,.btn-submit{font-size:1rem;padding:0.75rem}}@media(max-width:480px){h1{font-size:1.2rem}.clue-card,.treasure-reveal{padding:1rem}.clue-title,.treasure-name{font-size:1.5rem}.subtitle{font-size:1rem}.riddle,.message{font-size:1rem}input,select,.btn-submit{font-size:0.95rem;padding:0.6rem}.options-grid,.features,.stats{grid-template-columns:1fr;gap:0.75rem}.buttons{flex-direction:column}}</style></head><body><header><h1> Black Pearl Quest</h1><nav><span class='streak' id='streakDisplay'> 0</span><span class='score' id='scoreDisplay'> 1000</span><button class='btn-logout' onclick='logout()'>Logout</button></nav></header><div class='main'><div class='clue-card'><div style='text-align:center'><span class='difficulty-badge'> HARD - FINAL CHALLENGE</span></div><div class='clue-title'> CLUE 5: The Cursed Crew</div><p class='subtitle'>"Dead men tell no tales... or do they?"</p><div class='visual-clue'><div class='skull'></div><p style='font-size:1.8rem;color:var(--danger);margin-top:1rem;font-weight:700'>SOLVE THE PIRATE CODE!</p></div><div class='riddle'>In <span class='highlight'>Curse of the Black Pearl</span>, Captain Barbossa and his crew suffer under an ancient Aztec curse!<br><br> <strong>Movie Quote:</strong> "We are cursed men, Miss Turner. Compelled by greed, we took a stone from the stone chest. We took them all!"<br><br>The crew stole <span class='highlight'>882 pieces of Aztec gold</span>. Until every piece is returned with blood repaid, they cannot die, cannot feel - condemned to exist as the <span class='highlight'>undead</span>!<br><br><strong style='color:var(--danger);font-size:1.6rem'> Decode the pirates secret message:</strong></div><div class='code-puzzle'><div class='code-title'> PIRATE CIPHER (First letter of each line)</div><div class='code-lines'>Cursed by the Aztec gold we took,<br>Under moonlight, see our skeletal look.<br>Return the coins with blood to pay,<br>Sailing forever, we cannot stay.<br>Every piece must find its place,<br><br>Only then will we have grace.<br>Fear us not, for we are dead,<br><br>The Black Pearl is where we're led.<br>Here we wait for the curse to break,<br>End this torment for heavens sake!</div></div><div class='input-section'><input type='text' id='answer' placeholder='Type the secret message (two words)...' onkeypress='if(event.key==="Enter")checkAnswer()'></div><div class='hint-section'><button class='hint-btn' id='hint1Btn' onclick='useHint(1)'> Hint 1 (-300)</button><button class='hint-btn' id='hint2Btn' onclick='useHint(2)'> Hint 2 (-400)</button><button class='hint-btn danger' id='answerBtn' onclick='showAnswer()'> Show Answer (-800)</button><div class='hint-box' id='hint1Box'> Take the FIRST LETTER of each line. Read them together to form two words!</div><div class='hint-box' id='hint2Box'> C-U-R-S-E... keep going! The message is about the crew. Two words: "_____ OF THE"</div><div class='answer-box' id='answerBox'> ANSWER: CURSE OF THE (first letters spell it out!)</div></div><button class='btn-submit' id='submitBtn' onclick='checkAnswer()'> Claim Final Treasure</button><div class='feedback' id='feedback'></div></div></div><div id='bonusPopup' class='bonus-popup'></div><script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g",authDomain:"treasure-hunt0504.firebaseapp.com",projectId:"treasure-hunt0504"});
+const auth=firebase.auth();
+const db=firebase.firestore();
+let score=1000,streak=0,userId,hint1Used=false,hint2Used=false,hint3Used=false;
+const scoreDisplay=document.getElementById('scoreDisplay');
+const streakDisplay=document.getElementById('streakDisplay');
+
+auth.onAuthStateChanged(async u=>{
+  if(!u){location.href="login.html";return}
+  userId=u.uid;
+  const d=await db.collection("users").doc(userId).get();
+  if(d.exists){
+    score=d.data().score||1000;
+    streak=d.data().streak||0;
+    scoreDisplay.textContent="💰 "+score;
+    streakDisplay.textContent="🔥 "+streak;
+  }
+});
+
+document.getElementById('answer').addEventListener('input',e=>{
+  document.getElementById('submitBtn').disabled=!e.target.value.trim();
+});
+
+async function useHint(n){
+  if(n===1&&!hint1Used){
+    hint1Used=true;
+    score-=300;
+    document.getElementById('hint1Box').classList.add('show');
+    document.getElementById('hint1Btn').disabled=true;
+  }else if(n===2&&!hint2Used){
+    hint2Used=true;
+    score-=400;
+    document.getElementById('hint2Box').classList.add('show');
+    document.getElementById('hint2Btn').disabled=true;
+  }else if(n===3&&!hint3Used){
+    hint3Used=true;
+    score-=500;
+    document.getElementById('hint3Box').classList.add('show');
+    document.getElementById('hint3Btn').disabled=true;
+  }
+  scoreDisplay.textContent=" "+score;
+  await db.collection("users").doc(userId).update({score});
+}
+
+async function showAnswer(){
+  score-=800;
+  document.getElementById('answerBox').classList.add('show');
+  document.getElementById('answerBtn').disabled=true;
+  document.getElementById('hint1Btn').disabled=true;
+  document.getElementById('hint2Btn').disabled=true;
+  scoreDisplay.textContent=" "+score;
+  await db.collection("users").doc(userId).update({score});
+}
+
+async function checkAnswer(){
+  const ans=document.getElementById('answer').value.trim().toLowerCase();
+  const fb=document.getElementById('feedback');
+  const validAnswers=['curse of the','davy jones','cursed','curse'];
+  
+  if(validAnswers.some(v=>ans.includes(v))){
+    fb.textContent=" LEGENDARY! You decoded the pirate cipher!";
+    fb.className='feedback show success';
+    if(!hint1Used&&!hint2Used){
+      streak++;
+      score+=300;
+      showBonus(' +300 LEGENDARY BONUS!');
+    }
+    scoreDisplay.textContent=" "+score;
+    streakDisplay.textContent=" "+streak;
+    await db.collection("users").doc(userId).update({score,streak,lastPage:'final.html'});
+    localStorage.setItem('gameScore',score);
+    localStorage.setItem('gameStreak',streak);
+    setTimeout(()=>location.href='final.html',2000);
+  }else{
+    streak=0;
+    score-=75;
+    fb.textContent=" Wrong! Read the FIRST LETTER of each line!";
+    fb.className='feedback show error';
+    scoreDisplay.textContent=" "+score;
+    streakDisplay.textContent=" 0";
+    await db.collection("users").doc(userId).update({score,streak:0});
+    setTimeout(()=>fb.classList.remove('show'),2000);
+  }
+}
+
+function showBonus(msg){
+  const bp=document.getElementById('bonusPopup');
+  bp.textContent=msg;
+  bp.classList.add('show');
+  setTimeout(()=>bp.classList.remove('show'),2000);
+}
+
+window.logout=async()=>{await auth.signOut();location.href="login.html"};
+</script>
+</body></html>

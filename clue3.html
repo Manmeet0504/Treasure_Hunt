@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head><meta charset='UTF-8'><title>Clue 3 - Flying Dutchman</title><link href='https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap' rel='stylesheet'><style>:root{--gold:#fbbf24;--ghost:#22d3ee}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cinzel',serif;background:linear-gradient(135deg,#0f172a,#1e3a3a);color:#fff;min-height:100vh}header{background:rgba(15,23,42,0.9);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold)}h1{font-family:'Pirata One',cursive;color:var(--gold);font-size:2rem}nav{display:flex;gap:1rem;align-items:center}.score,.streak{background:rgba(251,191,36,0.2);padding:0.5rem 1rem;border-radius:8px;color:var(--gold);font-weight:700}.btn-logout{background:transparent;border:2px solid #ef4444;color:#ef4444;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-family:'Cinzel',serif}.main{max-width:1200px;margin:2rem auto;padding:2rem}.difficulty-badge{display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:white;padding:0.5rem 1.5rem;border-radius:20px;font-weight:700;margin-bottom:1rem;font-size:1.1rem}.clue-card{background:rgba(15,23,42,0.95);border:3px solid var(--ghost);border-radius:20px;padding:3rem;box-shadow:0 0 30px rgba(34,211,238,0.4)}.clue-title{font-family:'Pirata One',cursive;font-size:3rem;color:var(--ghost);text-align:center;margin-bottom:1rem}.subtitle{text-align:center;font-style:italic;color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1.2rem}.visual-clue{background:linear-gradient(135deg,#0f172a,#1e3a3a);border:2px solid rgba(34,211,238,0.5);border-radius:15px;padding:2rem;margin:2rem 0;text-align:center}.ship{font-size:8rem;animation:sail 3s ease-in-out infinite}@keyframes sail{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}.ghost-glow{color:var(--ghost);text-shadow:0 0 20px rgba(34,211,238,0.8);animation:glow 2s ease-in-out infinite}@keyframes glow{0%,100%{opacity:0.6}50%{opacity:1}}.riddle{background:rgba(34,211,238,0.1);border-left:4px solid var(--ghost);padding:1.5rem;margin:2rem 0;font-size:1.3rem;line-height:1.8}.highlight{color:var(--ghost);font-weight:700;font-size:1.4rem}.fill-blanks{background:rgba(30,41,59,0.8);border:2px solid rgba(34,211,238,0.3);border-radius:15px;padding:2rem;margin:2rem 0}.sentence{font-size:1.5rem;line-height:2.5;text-align:center;font-weight:600}select{background:rgba(34,211,238,0.2);border:2px solid var(--ghost);color:var(--ghost);padding:0.5rem 1rem;border-radius:8px;font-size:1.3rem;font-family:'Cinzel',serif;font-weight:700;cursor:pointer;margin:0 0.5rem}select:focus{outline:none;border-color:#22d3ee;box-shadow:0 0 10px rgba(34,211,238,0.5)}.hint-section{margin:2rem 0}.hint-btn{background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;padding:0.75rem 1.5rem;border-radius:8px;color:white;cursor:pointer;margin:0.5rem;font-family:'Cinzel',serif;font-size:1rem}.hint-btn:disabled{opacity:0.5;cursor:not-allowed}.hint-btn.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}.hint-box,.answer-box{padding:1rem;border-radius:8px;margin:0.5rem 0;display:none}.hint-box{background:rgba(59,130,246,0.2);border:2px solid #3b82f6}.answer-box{background:rgba(239,68,68,0.2);border:2px solid #ef4444}.hint-box.show,.answer-box.show{display:block}.btn-submit{background:var(--ghost);border:none;padding:1rem 3rem;border-radius:10px;color:#0f172a;font-size:1.2rem;font-weight:700;cursor:pointer;font-family:'Cinzel',serif;width:100%;margin-top:1rem}.btn-submit:disabled{opacity:0.5;cursor:not-allowed}.feedback{margin-top:1rem;padding:1rem;border-radius:10px;text-align:center;display:none}.feedback.show{display:block}.feedback.success{background:rgba(34,197,94,0.3);color:#4ade80;font-size:1.2rem;font-weight:700}.feedback.error{background:rgba(239,68,68,0.3);color:#f87171}.bonus-popup{position:fixed;top:50%;left:50%;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f172a;padding:2rem 3rem;border-radius:20px;font-size:2rem;font-weight:700;z-index:2000;display:none;transform:translate(-50%,-50%)}.bonus-popup.show{display:block;animation:popup 0.5s}@keyframes popup{0%{transform:translate(-50%,-50%) scale(0)}100%{transform:translate(-50%,-50%) scale(1)}}@media(max-width:768px){header{padding:0.75rem 1rem}h1{font-size:1.5rem}.score,.streak,.btn-logout{padding:0.4rem 0.8rem;font-size:0.9rem}.main{padding:1rem}.clue-card,.treasure-reveal{padding:2rem}.clue-title,.treasure-name{font-size:2rem}.riddle,.message{font-size:1.1rem;padding:1rem}input,select,.btn-submit{font-size:1rem;padding:0.75rem}}@media(max-width:480px){h1{font-size:1.2rem}.clue-card,.treasure-reveal{padding:1rem}.clue-title,.treasure-name{font-size:1.5rem}.subtitle{font-size:1rem}.riddle,.message{font-size:1rem}input,select,.btn-submit{font-size:0.95rem;padding:0.6rem}.options-grid,.features,.stats{grid-template-columns:1fr;gap:0.75rem}.buttons{flex-direction:column}}</style></head><body><header><h1> Black Pearl Quest</h1><nav><span class='streak' id='streakDisplay'> 0</span><span class='score' id='scoreDisplay'> 1000</span><button class='btn-logout' onclick='logout()'>Logout</button></nav></header><div class='main'><div class='clue-card'><div style='text-align:center'><span class='difficulty-badge'> MEDIUM</span></div><div class='clue-title'> CLUE 3: Cursed Ship</div><p class='subtitle'>"Part of the crew, part of the ship..."</p><div class='visual-clue'><div class='ship ghost-glow'></div><p style='font-size:1.5rem;color:var(--ghost);margin-top:1rem'>The ghost ship that sails forever!</p></div><div class='riddle'>In <span class='highlight'>Dead Mans Chest</span>, Will Turner encounters a cursed ship that can sail underwater!<br><br> <strong>Movie Quote:</strong> "Do you fear death? Do you fear that dark abyss?"<br><br>This ghostly vessel is captained by <span class='highlight'>Davy Jones</span>. The ship has tattered green sails and can appear from beneath the waves.<br><br><strong style='color:var(--ghost);font-size:1.5rem'> Complete the ship's name by filling the blanks:</strong></div><div class='fill-blanks'><div class='sentence'>THE <select id='word1' onchange='checkComplete()'><option value=''>---</option><option value='flying'>FLYING</option><option value='sailing'>SAILING</option><option value='ghost'>GHOST</option><option value='cursed'>CURSED</option></select> <select id='word2' onchange='checkComplete()'><option value=''>---</option><option value='dutchman'>DUTCHMAN</option><option value='pirate'>PIRATE</option><option value='sailor'>SAILOR</option><option value='captain'>CAPTAIN</option></select></div></div><div class='hint-section'><button class='hint-btn' id='hint1Btn' onclick='useHint(1)'> Hint 1 (-200)</button><button class='hint-btn' id='hint2Btn' onclick='useHint(2)'> Hint 2 (-300)</button><button class='hint-btn danger' id='answerBtn' onclick='showAnswer()'> Show Answer (-500)</button><div class='hint-box' id='hint1Box'> First word: Something that moves through the air. Second word: A nationality from the Netherlands.</div><div class='hint-box' id='hint2Box'> First word starts with "F". Second word starts with "D" - its a famous legend!</div><div class='answer-box' id='answerBox'> ANSWER: THE FLYING DUTCHMAN</div></div><button class='btn-submit' id='submitBtn' onclick='checkAnswer()' disabled> Submit Answer</button><div class='feedback' id='feedback'></div></div></div><div id='bonusPopup' class='bonus-popup'></div><script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g",authDomain:"treasure-hunt0504.firebaseapp.com",projectId:"treasure-hunt0504"});
+const auth=firebase.auth();
+const db=firebase.firestore();
+let score=1000,streak=0,userId,hint1Used=false,hint2Used=false;
+const scoreDisplay=document.getElementById('scoreDisplay');
+const streakDisplay=document.getElementById('streakDisplay');
+
+auth.onAuthStateChanged(async u=>{
+  if(!u){location.href="login.html";return}
+  userId=u.uid;
+  const d=await db.collection("users").doc(userId).get();
+  if(d.exists){
+    score=d.data().score||1000;
+    streak=d.data().streak||0;
+    scoreDisplay.textContent=score;
+    streakDisplay.textContent=streak;
+  }
+});
+
+function checkComplete(){
+  const w1=document.getElementById('word1').value;
+  const w2=document.getElementById('word2').value;
+  document.getElementById('submitBtn').disabled=!(w1&&w2);
+}
+
+async function useHint(n){
+  if(n===1&&!hint1Used){
+    hint1Used=true;
+    score-=200;
+    document.getElementById('hint1Box').classList.add('show');
+    document.getElementById('hint1Btn').disabled=true;
+  }else if(n===2&&!hint2Used){
+    hint2Used=true;
+    score-=300;
+    document.getElementById('hint2Box').classList.add('show');
+    document.getElementById('hint2Btn').disabled=true;
+  }
+  scoreDisplay.textContent=score;
+  await db.collection("users").doc(userId).update({score});
+}
+
+async function showAnswer(){
+  score-=500;
+  document.getElementById('answerBox').classList.add('show');
+  document.getElementById('answerBtn').disabled=true;
+  document.getElementById('hint1Btn').disabled=true;
+  document.getElementById('hint2Btn').disabled=true;
+  scoreDisplay.textContent=score;
+  await db.collection("users").doc(userId).update({score});
+}
+
+async function checkAnswer(){
+  const w1=document.getElementById('word1').value;
+  const w2=document.getElementById('word2').value;
+  const fb=document.getElementById('feedback');
+  
+  if(w1==='flying'&&w2==='dutchman'){
+    fb.textContent="CORRECT! The Flying Dutchman!";
+    fb.className='feedback show success';
+    if(!hint1Used&&!hint2Used){
+      streak++;
+      score+=250;
+      showBonus('+250 COMBO BONUS!');
+    }
+    scoreDisplay.textContent=score;
+    streakDisplay.textContent=streak;
+    await db.collection("users").doc(userId).update({score,streak,lastPage:'clue4.html'});
+    setTimeout(()=>location.href='clue4.html',2000);
+  }else{
+    streak=0;
+    score-=75;
+    fb.textContent="Wrong! Check the movie - what's the cursed ship's name?";
+    fb.className='feedback show error';
+    scoreDisplay.textContent=score;
+    streakDisplay.textContent=0;
+    await db.collection("users").doc(userId).update({score,streak:0});
+    setTimeout(()=>fb.classList.remove('show'),2000);
+  }
+}
+
+function showBonus(msg){
+  const bp=document.getElementById('bonusPopup');
+  bp.textContent=msg;
+  bp.classList.add('show');
+  setTimeout(()=>bp.classList.remove('show'),2000);
+}
+
+window.logout=async()=>{await auth.signOut();location.href="login.html"};
+</script>
+</body></html>
