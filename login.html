@@ -1,529 +1,237 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - Pirates Treasure Hunt</title>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle 3s infinite;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-.login-container {
-  background: rgba(15, 23, 42, 0.95);
-  border: 3px solid #fbbf24;
-  border-radius: 20px;
-  padding: 3rem;
-  max-width: 500px;
-  width: 90%;
-  z-index: 10;
-  box-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
-}
-
-.title {
-  font-size: 3rem;
-  color: #fbbf24;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 2rem;
-}
-
-.tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.tabs button {
-  flex: 1;
-  padding: 1rem;
-  border: 2px solid #fbbf24;
-  background: transparent;
-  color: #fff;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.tabs button.active {
-  background: #fbbf24;
-  color: #0f172a;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #fbbf24;
-}
-
-input {
-  width: 100%;
-  padding: 1rem;
-  background: rgba(30, 41, 59, 0.8);
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 1rem;
-}
-
-input:focus {
-  outline: none;
-  border-color: #fbbf24;
-}
-
-.btn-auth {
-  width: 100%;
-  padding: 1rem;
-  background: #fbbf24;
-  border: none;
-  border-radius: 10px;
-  color: #0f172a;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
-.btn-auth:hover {
-  opacity: 0.9;
-}
-
-.error-msg, .success-msg {
-  padding: 1rem;
-  border-radius: 10px;
-  margin-top: 1rem;
-  text-align: center;
-  display: none;
-}
-
-.error-msg {
-  background: rgba(239, 68, 68, 0.2);
-  border: 2px solid #ef4444;
-  color: #f87171;
-}
-
-.success-msg {
-  background: rgba(34, 197, 94, 0.2);
-  border: 2px solid #22c55e;
-  color: #4ade80;
-}
-
-.error-msg.show, .success-msg.show {
-  display: block;
-}
-
-/* BEAUTIFUL MODAL */
-.continue-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(10px);
-}
-
-.continue-modal.show {
-  display: flex;
-  animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.modal-content {
-  background: linear-gradient(135deg, #1e293b, #0f172a);
-  border: 4px solid #fbbf24;
-  border-radius: 25px;
-  padding: 3rem;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0 0 80px rgba(251, 191, 36, 0.6);
-  animation: modalSlide 0.4s ease-out;
-}
-
-@keyframes modalSlide {
-  from {
-    transform: translateY(-100px) scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.modal-title {
-  font-family: "Pirata One", cursive;
-  font-size: 2.8rem;
-  color: #fbbf24;
-  text-align: center;
-  margin-bottom: 2rem;
-  text-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
-}
-
-.modal-info {
-  background: rgba(251, 191, 36, 0.15);
-  border-left: 5px solid #fbbf24;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
-}
-
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-  font-size: 1.3rem;
-}
-
-.info-label {
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
-}
-
-.info-value {
-  color: #fbbf24;
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.modal-message {
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 2rem 0 1.5rem;
-}
-
-.modal-buttons {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.modal-btn {
-  flex: 1;
-  padding: 1.5rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-transform: uppercase;
-}
-
-.btn-continue {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: white;
-  box-shadow: 0 5px 20px rgba(34, 197, 94, 0.4);
-}
-
-.btn-continue:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
-}
-
-.btn-restart {
-  background: transparent;
-  border: 3px solid #ef4444;
-  color: #ef4444;
-}
-
-.btn-restart:hover {
-  background: #ef4444;
-  color: white;
-  transform: translateY(-3px);
-}
-
-@media (max-width: 600px) {
-  .modal-content {
-    padding: 2rem;
-  }
-  
-  .modal-title {
-    font-size: 2rem;
-  }
-  
-  .modal-buttons {
-    flex-direction: column;
-  }
-  
-  .info-row {
-    font-size: 1.1rem;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Pirates Treasure Hunt</title>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <link rel='stylesheet' href='css/login.css'>
 </head>
+
 <body>
-<div class='stars' id='stars'></div>
-<div class='login-container'>
-  <h1 class='title'> Set Sail</h1>
-  <p class='subtitle'>Begin your pirate adventure!</p>
-  
-  <div class='tabs'>
-    <button class='active' id='loginTab' onclick='showTab("login")'>Login</button>
-    <button id='registerTab' onclick='showTab("register")'>Register</button>
-  </div>
-  
-  <div id='loginForm'>
-    <div class='form-group'>
-      <label>Username</label>
-      <input type='email' id='loginEmail' placeholder='Enter email'>
-    </div>
-    <div class='form-group'>
-      <label>Password</label>
-      <input type='password' id='loginPassword' placeholder='Enter password'>
-    </div>
-    <button class='btn-auth' onclick='handleLogin()'>Login</button>
-  </div>
-  
-  <div id='registerForm' style='display:none'>
-    <div class='form-group'>
-      <label>Username</label>
-      <input type='email' id='registerEmail' placeholder='Enter email'>
-    </div>
-    <div class='form-group'>
-      <label>Password</label>
-      <input type='password' id='registerPassword' placeholder='Enter password'>
-    </div>
-    <div class='form-group'>
-      <label>Confirm Password</label>
-      <input type='password' id='confirmPassword' placeholder='Confirm password'>
-    </div>
-    <button class='btn-auth' onclick='handleRegister()'>Register</button>
-  </div>
-  
-  <div class='error-msg' id='errorMsg'></div>
-  <div class='success-msg' id='successMsg'></div>
-</div>
+  <div class='stars' id='stars'></div>
+  <div class='login-container'>
+    <h1 class='title'> Set Sail</h1>
+    <p class='subtitle'>Begin your pirate adventure!</p>
 
-<!-- BEAUTIFUL CONTINUE/RESTART MODAL -->
-<div class="continue-modal" id="continueModal">
-  <div class="modal-content">
-    <div class="modal-title"> Welcome Back, Captain!</div>
-    <div class="modal-info">
-      <div class="info-row">
-        <span class="info-label"> Last Location:</span>
-        <span class="info-value" id="modalLocation"></span>
+    <div class='tabs'>
+      <button class='active' id='loginTab' onclick='showTab("login")'>Login</button>
+      <button id='registerTab' onclick='showTab("register")'>Register</button>
+    </div>
+
+    <div id='loginForm'>
+      <div class='form-group'>
+        <label>Username</label>
+        <input type='email' id='loginEmail' placeholder='Enter email'>
       </div>
-      <div class="info-row">
-        <span class="info-label"> Current Score:</span>
-        <span class="info-value" id="modalScore"></span>
+      <div class='form-group'>
+        <label>Password</label>
+        <input type='password' id='loginPassword' placeholder='Enter password'>
+      </div>
+      <button class='btn-auth' onclick='handleLogin()'>Login</button>
+    </div>
+
+    <div id='registerForm' style='display:none'>
+      <div class='form-group'>
+        <label>Username</label>
+        <input type='email' id='registerEmail' placeholder='Enter email'>
+      </div>
+      <div class='form-group'>
+        <label>Password</label>
+        <input type='password' id='registerPassword' placeholder='Enter password'>
+      </div>
+      <div class='form-group'>
+        <label>Confirm Password</label>
+        <input type='password' id='confirmPassword' placeholder='Confirm password'>
+      </div>
+      <button class='btn-auth' onclick='handleRegister()'>Register</button>
+    </div>
+
+    <div class='error-msg' id='errorMsg'></div>
+    <div class='success-msg' id='successMsg'></div>
+  </div>
+
+  <!-- BEAUTIFUL CONTINUE/RESTART MODAL -->
+  <div class="continue-modal" id="continueModal">
+    <div class="modal-content">
+      <div class="modal-title"> Welcome Back, Captain!</div>
+      <div class="modal-info">
+        <div class="info-row">
+          <span class="info-label"> Last Location:</span>
+          <span class="info-value" id="modalLocation"></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label"> Current Score:</span>
+          <span class="info-value" id="modalScore"></span>
+        </div>
+      </div>
+      <p class="modal-message"> Choose your adventure:</p>
+      <div class="modal-buttons">
+        <button class="modal-btn btn-continue" id="btnContinue"> Continue Quest</button>
+        <button class="modal-btn btn-restart" id="btnRestart"> Start New Game</button>
       </div>
     </div>
-    <p class="modal-message"> Choose your adventure:</p>
-    <div class="modal-buttons">
-      <button class="modal-btn btn-continue" id="btnContinue"> Continue Quest</button>
-      <button class="modal-btn btn-restart" id="btnRestart"> Start New Game</button>
-    </div>
   </div>
-</div>
 
-<script>
-firebase.initializeApp({
-  apiKey: 'AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g',
-  authDomain: 'treasure-hunt0504.firebaseapp.com',
-  projectId: 'treasure-hunt0504',
-  storageBucket: 'treasure-hunt0504.firebasestorage.app',
-  messagingSenderId: '196677296556',
-  appId: '1:196677296556:web:e0d4da0cd849a49e6fda09'
-});
+  <script>
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-function createStars() {
-  const container = document.getElementById('stars');
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.width = star.style.height = Math.random() * 3 + 'px';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    container.appendChild(star);
-  }
-}
-createStars();
-
-function showTab(tab) {
-  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-  if (tab === 'login') {
-    loginTab.classList.add('active');
-    loginForm.style.display = 'block';
-    registerForm.style.display = 'none';
-  } else {
-    registerTab.classList.add('active');
-    loginForm.style.display = 'none';
-    registerForm.style.display = 'block';
-  }
-  errorMsg.classList.remove('show');
-  successMsg.classList.remove('show');
-}
-
-function showContinueModal(location, score, lastPage, uid) {
-  document.getElementById('modalLocation').textContent = location;
-  document.getElementById('modalScore').textContent = score;
-  document.getElementById('continueModal').classList.add('show');
-  
-  document.getElementById('btnContinue').onclick = () => {
-    window.location.href = lastPage;
-  };
-  
-  document.getElementById('btnRestart').onclick = async () => {
-    await db.collection('users').doc(uid).update({
-      score: 1000,
-      streak: 0,
-      lastPage: 'clue1.html'
+    firebase.initializeApp({
+      apiKey: 'AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g',
+      authDomain: 'treasure-hunt0504.firebaseapp.com',
+      projectId: 'treasure-hunt0504',
+      storageBucket: 'treasure-hunt0504.firebasestorage.app',
+      messagingSenderId: '196677296556',
+      appId: '1:196677296556:web:e0d4da0cd849a49e6fda09'
     });
-    window.location.href = 'clue1.html';
-  };
-}
 
-async function handleLogin() {
-  const email = loginEmail.value.trim();
-  const password = loginPassword.value;
-  
-  if (!email || !password) {
-    errorMsg.textContent = 'Please enter email and password';
-    errorMsg.classList.add('show');
-    return;
-  }
-  
-  try {
-    await auth.signInWithEmailAndPassword(email, password);
-    const user = auth.currentUser;
-    const userDoc = await db.collection('users').doc(user.uid).get();
-    
-    if (userDoc.exists) {
-      const userData = userDoc.data();
-      const lastPage = userData.lastPage || 'clue1.html';
-      
-      if (lastPage !== 'clue1.html' && lastPage !== 'index.html') {
-        const pageNum = lastPage.match(/clue(\d+)/);
-        const pageName = pageNum ? 'Clue ' + pageNum[1] : lastPage.replace('.html', '');
-        showContinueModal(pageName, userData.score || 1000, lastPage, user.uid);
-      } else {
-        location.href = 'clue1.html';
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    function createStars() {
+      const container = document.getElementById('stars');
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = star.style.height = Math.random() * 3 + 'px';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        container.appendChild(star);
       }
-    } else {
-      await db.collection('users').doc(user.uid).set({
-        email: email,
-        score: 1000,
-        streak: 0,
-        lastPage: 'clue1.html',
-        createdAt: new Date()
-      });
-      location.href = 'clue1.html';
     }
-  } catch (error) {
-    errorMsg.textContent = error.code === 'auth/user-not-found' ? 'User not found! Please register.' :
-                          error.code === 'auth/wrong-password' ? 'Wrong password!' :
-                          'Login failed: ' + error.message;
-    errorMsg.classList.add('show');
-  }
-}
+    createStars();
 
-async function handleRegister() {
-  const email = registerEmail.value.trim();
-  const password = registerPassword.value;
-  const confirm = confirmPassword.value;
-  
-  if (!email || !password || !confirm) {
-    errorMsg.textContent = 'Please fill all fields';
-    errorMsg.classList.add('show');
-    return;
-  }
-  
-  if (password !== confirm) {
-    errorMsg.textContent = 'Passwords do not match!';
-    errorMsg.classList.add('show');
-    return;
-  }
-  
-  try {
-    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-    await db.collection('users').doc(userCredential.user.uid).set({
-      email: email,
-      score: 1000,
-      streak: 0,
-      lastPage: 'clue1.html',
-      createdAt: new Date()
+    function showTab(tab) {
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      if (tab === 'login') {
+        loginTab.classList.add('active');
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+      } else {
+        registerTab.classList.add('active');
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+      }
+      errorMsg.classList.remove('show');
+      successMsg.classList.remove('show');
+    }
+
+    function showContinueModal(location, score, lastPage, uid) {
+      document.getElementById('modalLocation').textContent = location;
+      document.getElementById('modalScore').textContent = score;
+      document.getElementById('continueModal').classList.add('show');
+
+      document.getElementById('btnContinue').onclick = () => {
+        window.location.href = lastPage;
+      };
+
+      document.getElementById('btnRestart').onclick = async () => {
+        await db.collection('users').doc(uid).update({
+          score: 1000,
+          streak: 0,
+          lastPage: 'clue1.html'
+        });
+        window.location.href = 'clue1.html';
+      };
+    }
+
+    async function handleLogin() {
+      const email = loginEmail.value.trim();
+      const password = loginPassword.value;
+
+      if (!email || !password) {
+        errorMsg.textContent = 'Please enter email and password';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      try {
+        await auth.signInWithEmailAndPassword(email, password);
+        const user = auth.currentUser;
+        const userDoc = await db.collection('users').doc(user.uid).get();
+
+        if (userDoc.exists) {
+          const userData = userDoc.data();
+          const lastPage = userData.lastPage || 'clue1.html';
+
+          if (lastPage !== 'clue1.html' && lastPage !== 'index.html') {
+            const pageNum = lastPage.match(/clue(\d+)/);
+            const pageName = pageNum ? 'Clue ' + pageNum[1] : lastPage.replace('.html', '');
+            showContinueModal(pageName, userData.score || 1000, lastPage, user.uid);
+          } else {
+            location.href = 'clue1.html';
+          }
+        } else {
+          await db.collection('users').doc(user.uid).set({
+            email: email,
+            score: 1000,
+            streak: 0,
+            lastPage: 'clue1.html',
+            createdAt: new Date()
+          });
+          location.href = 'clue1.html';
+        }
+      } catch (error) {
+        errorMsg.textContent = error.code === 'auth/user-not-found' ? 'User not found! Please register.' :
+          error.code === 'auth/wrong-password' ? 'Wrong password!' :
+            'Login failed: ' + error.message;
+        errorMsg.classList.add('show');
+      }
+    }
+
+    async function handleRegister() {
+      const email = registerEmail.value.trim();
+      const password = registerPassword.value;
+      const confirm = confirmPassword.value;
+
+      if (!email || !password || !confirm) {
+        errorMsg.textContent = 'Please fill all fields';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      if (password !== confirm) {
+        errorMsg.textContent = 'Passwords do not match!';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        await db.collection('users').doc(userCredential.user.uid).set({
+          email: email,
+          score: 1000,
+          streak: 0,
+          lastPage: 'clue1.html',
+          createdAt: new Date()
+        });
+        successMsg.textContent = 'Account created! Redirecting...';
+        successMsg.classList.add('show');
+        setTimeout(() => location.href = 'clue1.html', 1500);
+      } catch (error) {
+        errorMsg.textContent = error.code === 'auth/email-already-in-use' ? 'Email already registered!' :
+          'Registration failed: ' + error.message;
+        errorMsg.classList.add('show');
+      }
+    }
+
+    loginEmail.addEventListener('keypress', e => {
+      if (e.key === 'Enter') handleLogin();
     });
-    successMsg.textContent = 'Account created! Redirecting...';
-    successMsg.classList.add('show');
-    setTimeout(() => location.href = 'clue1.html', 1500);
-  } catch (error) {
-    errorMsg.textContent = error.code === 'auth/email-already-in-use' ? 'Email already registered!' :
-                          'Registration failed: ' + error.message;
-    errorMsg.classList.add('show');
-  }
-}
 
-loginEmail.addEventListener('keypress', e => {
-  if (e.key === 'Enter') handleLogin();
-});
+    loginPassword.addEventListener('keypress', e => {
+      if (e.key === 'Enter') handleLogin();
+    });
 
-loginPassword.addEventListener('keypress', e => {
-  if (e.key === 'Enter') handleLogin();
-});
+    confirmPassword.addEventListener('keypress', e => {
+      if (e.key === 'Enter') handleRegister();
+    });
 
-confirmPassword.addEventListener('keypress', e => {
-  if (e.key === 'Enter') handleRegister();
-});
-</script>
+
+  </script>
 </body>
+
 </html>

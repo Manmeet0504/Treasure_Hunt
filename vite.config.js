@@ -1,4 +1,5 @@
-import { defineConfig } from 'vite';
+﻿import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
   root: '.',
@@ -6,16 +7,17 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        main: './index.html',
-        login: './login.html',
-        clue1: './clue1.html',
-        clue2: './clue2.html',
-        clue3: './clue3.html',
-        clue4: './clue4.html',
-        clue5: './clue5.html',
-        final: './final.html'
+        main: resolve(__dirname, 'index.html'),
+        login: resolve(__dirname, 'login.html'),
+        clue1: resolve(__dirname, 'clue1.html'),
+        clue2: resolve(__dirname, 'clue2.html'),
+        clue3: resolve(__dirname, 'clue3.html'),
+        clue4: resolve(__dirname, 'clue4.html'),
+        clue5: resolve(__dirname, 'clue5.html'),
+        final: resolve(__dirname, 'final.html')
       }
-    }
+    },
+    assetsInlineLimit: 0
   },
   server: {
     port: 3000,

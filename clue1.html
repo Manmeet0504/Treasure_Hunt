@@ -1,97 +1,158 @@
-<!DOCTYPE html>
-<html><head><meta charset='UTF-8'><title>Clue 1 - Jack Sparrow</title><link href='https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap' rel='stylesheet'><style>:root{--gold:#fbbf24}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Cinzel',serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}header{background:rgba(15,23,42,0.9);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold)}h1{font-family:'Pirata One',cursive;color:var(--gold);font-size:2rem}nav{display:flex;gap:1rem;align-items:center}.score,.streak{background:rgba(251,191,36,0.2);padding:0.5rem 1rem;border-radius:8px;color:var(--gold);font-weight:700}.btn-logout{background:transparent;border:2px solid #ef4444;color:#ef4444;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-family:'Cinzel',serif}.main{max-width:1200px;margin:2rem auto;padding:2rem}.difficulty-badge{display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);color:white;padding:0.5rem 1.5rem;border-radius:20px;font-weight:700;margin-bottom:1rem;font-size:1.1rem}.clue-card{background:rgba(15,23,42,0.95);border:3px solid var(--gold);border-radius:20px;padding:3rem}.clue-title{font-family:'Pirata One',cursive;font-size:3rem;color:var(--gold);text-align:center;margin-bottom:1rem}.subtitle{text-align:center;font-style:italic;color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1.2rem}.riddle{background:rgba(251,191,36,0.1);border-left:4px solid var(--gold);padding:1.5rem;margin:2rem 0;font-size:1.3rem;line-height:1.8}.highlight{color:var(--gold);font-weight:700;font-size:1.4rem}.options-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2rem 0}.option-card{background:rgba(30,41,59,0.8);border:3px solid rgba(251,191,36,0.3);border-radius:15px;padding:1.5rem;cursor:pointer;transition:all 0.3s;text-align:center}.option-card:hover{transform:scale(1.05);border-color:var(--gold);box-shadow:0 0 20px rgba(251,191,36,0.4)}.option-card.selected{border-color:var(--gold);background:rgba(251,191,36,0.2)}.option-icon{font-size:5rem;margin-bottom:1rem}.option-text{font-size:1.2rem;font-weight:600}.hint-section{margin:2rem 0}.hint-btn{background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;padding:0.75rem 1.5rem;border-radius:8px;color:white;cursor:pointer;margin:0.5rem;font-family:'Cinzel',serif;font-size:1rem}.hint-btn:disabled{opacity:0.5;cursor:not-allowed}.hint-btn.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}.hint-box,.answer-box{padding:1rem;border-radius:8px;margin:0.5rem 0;display:none}.hint-box{background:rgba(59,130,246,0.2);border:2px solid #3b82f6}.answer-box{background:rgba(239,68,68,0.2);border:2px solid #ef4444}.hint-box.show,.answer-box.show{display:block}.btn-submit{background:var(--gold);border:none;padding:1rem 3rem;border-radius:10px;color:#0f172a;font-size:1.2rem;font-weight:700;cursor:pointer;font-family:'Cinzel',serif;width:100%;margin-top:1rem}.btn-submit:disabled{opacity:0.5;cursor:not-allowed}.feedback{margin-top:1rem;padding:1rem;border-radius:10px;text-align:center;display:none}.feedback.show{display:block}.feedback.success{background:rgba(34,197,94,0.3);color:#4ade80;font-size:1.2rem;font-weight:700}.feedback.error{background:rgba(239,68,68,0.3);color:#f87171}.bonus-popup{position:fixed;top:50%;left:50%;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f172a;padding:2rem 3rem;border-radius:20px;font-size:2rem;font-weight:700;z-index:2000;display:none;transform:translate(-50%,-50%)}.bonus-popup.show{display:block;animation:popup 0.5s}@keyframes popup{0%{transform:translate(-50%,-50%) scale(0)}100%{transform:translate(-50%,-50%) scale(1)}}@media(max-width:768px){header{padding:0.75rem 1rem}h1{font-size:1.5rem}.score,.streak,.btn-logout{padding:0.4rem 0.8rem;font-size:0.9rem}.main{padding:1rem}.clue-card,.treasure-reveal{padding:2rem}.clue-title,.treasure-name{font-size:2rem}.riddle,.message{font-size:1.1rem;padding:1rem}input,select,.btn-submit{font-size:1rem;padding:0.75rem}}@media(max-width:480px){h1{font-size:1.2rem}.clue-card,.treasure-reveal{padding:1rem}.clue-title,.treasure-name{font-size:1.5rem}.subtitle{font-size:1rem}.riddle,.message{font-size:1rem}input,select,.btn-submit{font-size:0.95rem;padding:0.6rem}.options-grid,.features,.stats{grid-template-columns:1fr;gap:0.75rem}.buttons{flex-direction:column}}</style></head><body><header><h1> Black Pearl Quest</h1><nav><span class='streak' id='streakDisplay'> 0</span><span class='score' id='scoreDisplay'> 1000</span><button class='btn-logout' onclick='logout()'>Logout</button></nav></header><div class='main'><div class='clue-card'><div style='text-align:center'><span class='difficulty-badge'> EASY</span></div><div class='clue-title'> CLUE 1: Captain's Choice</div><p class='subtitle'>"Not all treasure is silver and gold, mate."</p><div class='riddle'>Captain Jack Sparrow is known for ONE item that always points to what he wants most!<br><br> <strong>Movie Quote:</strong> "My compass doesn't point north... it points to what you want most!"<br><br>Jack's magical compass doesn't follow normal directions - it shows the way to your <span class='highlight'>hearts desire</span>!<br><br><strong style='color:var(--gold);font-size:1.5rem'> Click on Jack Sparrow's most famous possession:</strong></div><div class='options-grid'><div class='option-card' onclick='selectOption("compass")'><div class='option-icon'></div><div class='option-text'>Magical Compass</div></div><div class='option-card' onclick='selectOption("sword")'><div class='option-icon'></div><div class='option-text'>Pirate Sword</div></div><div class='option-card' onclick='selectOption("hat")'><div class='option-icon'></div><div class='option-text'>Pirate Hat</div></div><div class='option-card' onclick='selectOption("ship")'><div class='option-icon'></div><div class='option-text'>Black Pearl Ship</div></div></div><div class='hint-section'><button class='hint-btn' id='hint1Btn' onclick='useHint(1)'> Hint 1 (-100)</button><button class='hint-btn danger' id='answerBtn' onclick='showAnswer()'> Show Answer (-300)</button><div class='hint-box' id='hint1Box'> Its something that helps you find direction... but not a normal one! It points to what you want!</div><div class='answer-box' id='answerBox'> ANSWER: The Magical Compass </div></div><button class='btn-submit' id='submitBtn' onclick='checkAnswer()' disabled> Submit Answer</button><div class='feedback' id='feedback'></div></div></div><div id='bonusPopup' class='bonus-popup'></div><script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<script>
-firebase.initializeApp({apiKey:"AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g",authDomain:"treasure-hunt0504.firebaseapp.com",projectId:"treasure-hunt0504"});
-const auth=firebase.auth();
-const db=firebase.firestore();
-let score=1000,streak=0,userId,hint1Used=false,hint2Used=false;
-const scoreDisplay=document.getElementById('scoreDisplay');
-const streakDisplay=document.getElementById('streakDisplay');
-const correctAnswer='compass';
+﻿<!DOCTYPE html>
+<html>
 
-auth.onAuthStateChanged(async u=>{
-  if(!u){location.href="login.html";return}
-  userId=u.uid;
-  const d=await db.collection("users").doc(userId).get();
-  if(d.exists){
-    score=d.data().score||1000;
-    streak=d.data().streak||0;
-    scoreDisplay.textContent=" "+score;
-    streakDisplay.textContent=" "+streak;
-  }
-});
+<head>
+  <meta charset='UTF-8'>
+  <title>Clue 1 - Jack Sparrow</title>
+  <link href='https://fonts.googleapis.com/css2?family=Pirata+One&family=Cinzel:wght@400;700&display=swap'
+    rel='stylesheet'>
+  <link rel='stylesheet' href='css/clue1.css'>
+</head>
 
-function selectOption(opt){
-  document.querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));
-  document.querySelector('[onclick*="'+opt+'"]').classList.add('selected');
-  document.getElementById('submitBtn').disabled=false;
-}
+<body>
+  <header>
+    <h1> Black Pearl Quest</h1>
+    <nav><span class='streak' id='streakDisplay'> 0</span><span class='score' id='scoreDisplay'> 1000</span><button
+        class='btn-logout' onclick='logout()'>Logout</button></nav>
+  </header>
+  <div class='main'>
+    <div class='clue-card'>
+      <div style='text-align:center'><span class='difficulty-badge'> EASY</span></div>
+      <div class='clue-title'> CLUE 1: Captain's Choice</div>
+      <p class='subtitle'>"Not all treasure is silver and gold, mate."</p>
+      <div class='riddle'>Captain Jack Sparrow is known for ONE item that always points to what he wants most!<br><br>
+        <strong>Movie Quote:</strong> "My compass doesn't point north... it points to what you want most!"<br><br>Jack's
+        magical compass doesn't follow normal directions - it shows the way to your <span class='highlight'>hearts
+          desire</span>!<br><br><strong style='color:var(--gold);font-size:1.5rem'> Click on Jack Sparrow's most famous
+          possession:</strong>
+      </div>
+      <div class='options-grid'>
+        <div class='option-card' onclick='selectOption("compass")'>
+          <div class='option-icon'></div>
+          <div class='option-text'>Magical Compass</div>
+        </div>
+        <div class='option-card' onclick='selectOption("sword")'>
+          <div class='option-icon'></div>
+          <div class='option-text'>Pirate Sword</div>
+        </div>
+        <div class='option-card' onclick='selectOption("hat")'>
+          <div class='option-icon'></div>
+          <div class='option-text'>Pirate Hat</div>
+        </div>
+        <div class='option-card' onclick='selectOption("ship")'>
+          <div class='option-icon'></div>
+          <div class='option-text'>Black Pearl Ship</div>
+        </div>
+      </div>
+      <div class='hint-section'><button class='hint-btn' id='hint1Btn' onclick='useHint(1)'> Hint 1
+          (-100)</button><button class='hint-btn danger' id='answerBtn' onclick='showAnswer()'> Show Answer
+          (-300)</button>
+        <div class='hint-box' id='hint1Box'> Its something that helps you find direction... but not a normal one! It
+          points to what you want!</div>
+        <div class='answer-box' id='answerBox'> ANSWER: The Magical Compass </div>
+      </div><button class='btn-submit' id='submitBtn' onclick='checkAnswer()' disabled> Submit Answer</button>
+      <div class='feedback' id='feedback'></div>
+    </div>
+  </div>
+  <div id='bonusPopup' class='bonus-popup'></div>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script>
 
-async function useHint(n){
-  if(n===1&&!hint1Used){
-    hint1Used=true;
-    score-=100;
-    document.getElementById('hint1Box').classList.add('show');
-    document.getElementById('hint1Btn').disabled=true;
-  }else if(n===2&&!hint2Used){
-    hint2Used=true;
-    score-=200;
-    document.getElementById('hint2Box').classList.add('show');
-    document.getElementById('hint2Btn').disabled=true;
-  }
-  scoreDisplay.textContent=" "+score;
-  await db.collection("users").doc(userId).update({score});
-}
+    firebase.initializeApp({ apiKey: "AIzaSyAuiPj8cmroirg2p88bJJUea8HUYbi5w5g", authDomain: "treasure-hunt0504.firebaseapp.com", projectId: "treasure-hunt0504" });
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    let score = 1000, streak = 0, userId, hint1Used = false, hint2Used = false;
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const streakDisplay = document.getElementById('streakDisplay');
+    const correctAnswer = 'compass';
 
-async function showAnswer(){
-  score-=300;
-  document.getElementById('answerBox').classList.add('show');
-  document.getElementById('answerBtn').disabled=true;
-  document.getElementById('hint1Btn').disabled=true;
-  scoreDisplay.textContent=" "+score;
-  await db.collection("users").doc(userId).update({score});
-}
+    auth.onAuthStateChanged(async u => {
+      if (!u) { location.href = "login.html"; return }
+      userId = u.uid;
+      const d = await db.collection("users").doc(userId).get();
+      if (d.exists) {
+        score = d.data().score || 1000;
+        streak = d.data().streak || 0;
+        scoreDisplay.textContent = " " + score;
+        streakDisplay.textContent = " " + streak;
+      }
+    });
 
-async function checkAnswer(){
-  const sel=document.querySelector('.option-card.selected');
-  if(!sel)return;
-  const ans=sel.getAttribute('onclick').match(/"([^"]+)"/)[1];
-  const fb=document.getElementById('feedback');
-  if(ans===correctAnswer){
-    fb.textContent=" CORRECT! The compass points the way!";
-    fb.className='feedback show success';
-    if(!hint1Used&&!hint2Used){
-      streak++;
-      score+=150;
-      showBonus(' +150 COMBO BONUS!');
+    function selectOption(opt) {
+      document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+      document.querySelector('[onclick*="' + opt + '"]').classList.add('selected');
+      document.getElementById('submitBtn').disabled = false;
     }
-    scoreDisplay.textContent=" "+score;
-    streakDisplay.textContent=" "+streak;
-    await db.collection("users").doc(userId).update({score,streak,lastPage:'clue2.html'});
-    setTimeout(()=>location.href='clue2.html',2000);
-  }else{
-    streak=0;
-    score-=50;
-    fb.textContent=" Wrong! Try again!";
-    fb.className='feedback show error';
-    scoreDisplay.textContent=" "+score;
-    streakDisplay.textContent=" 0";
-    await db.collection("users").doc(userId).update({score,streak:0});
-    setTimeout(()=>fb.classList.remove('show'),2000);
-  }
-}
 
-function showBonus(msg){
-  const bp=document.getElementById('bonusPopup');
-  bp.textContent=msg;
-  bp.classList.add('show');
-  setTimeout(()=>bp.classList.remove('show'),2000);
-}
+    async function useHint(n) {
+      if (n === 1 && !hint1Used) {
+        hint1Used = true;
+        score -= 100;
+        document.getElementById('hint1Box').classList.add('show');
+        document.getElementById('hint1Btn').disabled = true;
+      } else if (n === 2 && !hint2Used) {
+        hint2Used = true;
+        score -= 200;
+        document.getElementById('hint2Box').classList.add('show');
+        document.getElementById('hint2Btn').disabled = true;
+      }
+      scoreDisplay.textContent = " " + score;
+      await db.collection("users").doc(userId).update({ score });
+    }
 
-window.logout=async()=>{await auth.signOut();location.href="login.html"};
-</script>
-</body></html>
+    async function showAnswer() {
+      score -= 300;
+      document.getElementById('answerBox').classList.add('show');
+      document.getElementById('answerBtn').disabled = true;
+      document.getElementById('hint1Btn').disabled = true;
+      scoreDisplay.textContent = " " + score;
+      await db.collection("users").doc(userId).update({ score });
+    }
+
+    async function checkAnswer() {
+      const sel = document.querySelector('.option-card.selected');
+      if (!sel) return;
+      const ans = sel.getAttribute('onclick').match(/"([^"]+)"/)[1];
+      const fb = document.getElementById('feedback');
+      if (ans === correctAnswer) {
+        fb.textContent = " CORRECT! The compass points the way!";
+        fb.className = 'feedback show success';
+        if (!hint1Used && !hint2Used) {
+          streak++;
+          score += 150;
+          showBonus(' +150 COMBO BONUS!');
+        }
+        scoreDisplay.textContent = " " + score;
+        streakDisplay.textContent = " " + streak;
+        await db.collection("users").doc(userId).update({ score, streak, lastPage: 'clue2.html' });
+        setTimeout(() => location.href = 'clue2.html', 2000);
+      } else {
+        streak = 0;
+        score -= 50;
+        fb.textContent = " Wrong! Try again!";
+        fb.className = 'feedback show error';
+        scoreDisplay.textContent = " " + score;
+        streakDisplay.textContent = " 0";
+        await db.collection("users").doc(userId).update({ score, streak: 0 });
+        setTimeout(() => fb.classList.remove('show'), 2000);
+      }
+    }
+
+    function showBonus(msg) {
+      const bp = document.getElementById('bonusPopup');
+      bp.textContent = msg;
+      bp.classList.add('show');
+      setTimeout(() => bp.classList.remove('show'), 2000);
+    }
+
+    window.logout = async () => { await auth.signOut(); location.href = "login.html" };
+
+
+  </script>
+</body>
+
+</html>

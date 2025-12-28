@@ -1,0 +1,399 @@
+﻿:root {
+    --gold: #fbbf24;
+    --ghost: #22d3ee
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a3a);
+    color: #fff;
+    min-height: 100vh
+}
+
+header {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--gold)
+}
+
+h1 {
+    font-family: 'Pirata One', cursive;
+    color: var(--gold);
+    font-size: 2rem
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center
+}
+
+.score,
+.streak {
+    background: rgba(251, 191, 36, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: var(--gold);
+    font-weight: 700
+}
+
+.btn-logout {
+    background: transparent;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif
+}
+
+.main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem
+}
+
+.difficulty-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.1rem
+}
+
+.clue-card {
+    background: rgba(15, 23, 42, 0.95);
+    border: 3px solid var(--ghost);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4)
+}
+
+.clue-title {
+    font-family: 'Pirata One', cursive;
+    font-size: 3rem;
+    color: var(--ghost);
+    text-align: center;
+    margin-bottom: 1rem
+}
+
+.subtitle {
+    text-align: center;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    font-size: 1.2rem
+}
+
+.visual-clue {
+    background: linear-gradient(135deg, #0f172a, #1e3a3a);
+    border: 2px solid rgba(34, 211, 238, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center
+}
+
+.ship {
+    font-size: 8rem;
+    animation: sail 3s ease-in-out infinite
+}
+
+@keyframes sail {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-20px)
+    }
+}
+
+.ghost-glow {
+    color: var(--ghost);
+    text-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+    animation: glow 2s ease-in-out infinite
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.6
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+.riddle {
+    background: rgba(34, 211, 238, 0.1);
+    border-left: 4px solid var(--ghost);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.3rem;
+    line-height: 1.8
+}
+
+.highlight {
+    color: var(--ghost);
+    font-weight: 700;
+    font-size: 1.4rem
+}
+
+.fill-blanks {
+    background: rgba(30, 41, 59, 0.8);
+    border: 2px solid rgba(34, 211, 238, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0
+}
+
+.sentence {
+    font-size: 1.5rem;
+    line-height: 2.5;
+    text-align: center;
+    font-weight: 600
+}
+
+select {
+    background: rgba(34, 211, 238, 0.2);
+    border: 2px solid var(--ghost);
+    color: var(--ghost);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 0.5rem
+}
+
+select:focus {
+    outline: none;
+    border-color: #22d3ee;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5)
+}
+
+.hint-section {
+    margin: 2rem 0
+}
+
+.hint-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem
+}
+
+.hint-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed
+}
+
+.hint-btn.danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626)
+}
+
+.hint-box,
+.answer-box {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    display: none
+}
+
+.hint-box {
+    background: rgba(59, 130, 246, 0.2);
+    border: 2px solid #3b82f6
+}
+
+.answer-box {
+    background: rgba(239, 68, 68, 0.2);
+    border: 2px solid #ef4444
+}
+
+.hint-box.show,
+.answer-box.show {
+    display: block
+}
+
+.btn-submit {
+    background: var(--ghost);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    color: #0f172a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    width: 100%;
+    margin-top: 1rem
+}
+
+.btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed
+}
+
+.feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    display: none
+}
+
+.feedback.show {
+    display: block
+}
+
+.feedback.success {
+    background: rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+    font-size: 1.2rem;
+    font-weight: 700
+}
+
+.feedback.error {
+    background: rgba(239, 68, 68, 0.3);
+    color: #f87171
+}
+
+.bonus-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #0f172a;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 2000;
+    display: none;
+    transform: translate(-50%, -50%)
+}
+
+.bonus-popup.show {
+    display: block;
+    animation: popup 0.5s
+}
+
+@keyframes popup {
+    0% {
+        transform: translate(-50%, -50%) scale(0)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+@media(max-width:768px) {
+    header {
+        padding: 0.75rem 1rem
+    }
+
+    h1 {
+        font-size: 1.5rem
+    }
+
+    .score,
+    .streak,
+    .btn-logout {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem
+    }
+
+    .main {
+        padding: 1rem
+    }
+
+    .clue-card,
+    .treasure-reveal {
+        padding: 2rem
+    }
+
+    .clue-title,
+    .treasure-name {
+        font-size: 2rem
+    }
+
+    .riddle,
+    .message {
+        font-size: 1.1rem;
+        padding: 1rem
+    }
+
+    input,
+    select,
+    .btn-submit {
+        font-size: 1rem;
+        padding: 0.75rem
+    }
+}
+
+@media(max-width:480px) {
+    h1 {
+        font-size: 1.2rem
+    }
+
+    .clue-card,
+    .treasure-reveal {
+        padding: 1rem
+    }
+
+    .clue-title,
+    .treasure-name {
+        font-size: 1.5rem
+    }
+
+    .subtitle {
+        font-size: 1rem
+    }
+
+    .riddle,
+    .message {
+        font-size: 1rem
+    }
+
+    input,
+    select,
+    .btn-submit {
+        font-size: 0.95rem;
+        padding: 0.6rem
+    }
+
+    .options-grid,
+    .features,
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 0.75rem
+    }
+
+    .buttons {
+        flex-direction: column
+    }
+}
