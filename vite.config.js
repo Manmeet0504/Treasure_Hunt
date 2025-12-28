@@ -1,4 +1,4 @@
-﻿import { defineConfig } from 'vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: '.',
@@ -11,7 +11,8 @@ export default defineConfig({
         clue1: './clue1.html',
         clue2: './clue2.html',
         clue3: './clue3.html',
-        deadEnd1: './deadEnd1.html',
+        clue4: './clue4.html',
+        clue5: './clue5.html',
         final: './final.html'
       }
     }
