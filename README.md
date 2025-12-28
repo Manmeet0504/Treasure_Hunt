@@ -38,6 +38,3 @@ npm run dev
 
 Open http://localhost:3000
 
----
-
-Made with  by a pirate who codes
